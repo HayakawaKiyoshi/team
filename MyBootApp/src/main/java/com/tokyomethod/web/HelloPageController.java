@@ -26,10 +26,15 @@ public class HelloPageController {
 		return "forward:/";
 	}
 
+	/*
+	 *
+	 * @auther User 変更 git確認のため
+	 */
+
 	@RequestMapping("/home")
 	public ModelAndView home2(ModelAndView mav) {
 		mav.setViewName("forward:/send");
-		mav.addObject("msg", "こんにちは、xxx さん！");
+		mav.addObject("msg", "こんにちは、××× さん！");
 		return mav;
 	}
 

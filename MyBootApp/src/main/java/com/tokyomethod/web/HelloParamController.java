@@ -7,7 +7,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tokyomethod.form.InputForm;
-
+/**
+ *
+ * @author iwata Git確認コメント
+ *
+ */
 @Controller
 //@RequestMapping("/")
 public class HelloParamController {

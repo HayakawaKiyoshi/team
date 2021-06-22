@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>top page</title>
+<style th:fragment="frag_style">
+style部品
+ div.fragment {
+	border: solid 3px lightgray
+}
+
+div.footer {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<h1>Hello Thymeleaf</h1>
+	<p th:text="${msg}"></p>
+	<div th:fragment="frag_body1">
+		<div class="fragment">
+			<p>フラグメント コンテンツ１。</p>
+			<p>メッセージ １....</p>
+		</div>
+	</div>
+	<div th:fragment="frag_body2">
+		<div class="fragment">
+			<p>フラグメント コンテンツ２。</p>
+			<p>メッセージ ２....</p>
+		</div>
+	</div>
+</body>
+</html>

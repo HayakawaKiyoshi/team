@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Hello Thymeleaf</h1>
+ <p th:text="${msg}"></p>
+ <h1 th:text="#{content.title}"></h1>
+ <p th:text="'from parameter... id=' + ${ param.id +',name='+ param.name}"></p>
+ <p><a th:href="@{'/Cont/param2/' + ${obj}}">link Parameter 1item</a></p>
+ <p><a th:href="@{/Thyme/sample6 (id=${param.id[0]},name=${param.name[0]}) }">
+link Parameter 2items</a></p>
+ <p><a th:href="@{/Thyme/sample3 (id=${param.id[0]},name=${param.name[0]},
+ id='456',name='潔') }">link Parameter 4items</a></p>
+
+</body>
+</html>

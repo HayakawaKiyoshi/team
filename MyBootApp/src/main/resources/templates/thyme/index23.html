@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
+<title>form input page</title>
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>Hello Thymeleaf</h1>
+			<p th:text="${msg}"></p>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<form role="form" action="/Thyme/sample23/confirm"
+					th:action="@{/Thyme/sample23/confirm}" th:object="${myForm}"
+					method="post">
+					<!-- text -->
+					<div class="form-group">
+						<label class="control-label" for="inputText">テキスト：</label> <input
+							type="text" class="form-control" id="inputText" name="ftext"
+							th:field="*{ftext}" />
+					</div>
+					<!-- date type text -->
+					<div class="form-group">
+						<label class="control-label" for="inputDateText">日付（text）：</label>
+						<input type="text" class="form-control" id="inputDateText"
+							name="ftdate" th:field="*{ftdate}" />
+					</div>
+					<!-- number type text -->
+					<div class="form-group">
+						<label class="control-label" for="inputNumberText">数字（text）：</label>
+						<input type="text" class="form-control" id="inputNumberText"
+							name="ftnum" th:field="*{ftnum}" />
+					</div>
+					<!-- number -->
+					<div class="form-group">
+						<label class="control-label" for="inputNumber">数字 正数：</label> <input
+							type="text" class="form-control" id="inputNumber" name="fnum"
+							th:field="*{fnum}" />
+					</div>
+					<!-- textarea -->
+					<div class="form-group">
+						<label class="control-label" for="inputTextarea1">テキストエリア：</label>
+						<textarea rows="3" cols="80" class="form-control"
+							id="inputTextarea" name="farea" th:field="*{farea}"></textarea>
+					</div>
+					<!-- email -->
+					<div class="form-group">
+						<label class="control-label" for="inputEmail">メールアドレス：</label> <input
+							type="email" class="form-control" id="inputEmail" name="femail"
+							th:field="*{femail}" />
+					</div>
+					<!-- password -->
+					<div class="form-group">
+						<label class="control-label" for="inputPassword">パスワード：</label> <input
+							type="password" class="form-control" id="inputPassword"
+							name="fpass" th:field="*{fpass}" />
+					</div>
+					<!-- select single -->
+					<div class="form-group">
+						<label class="control-label" for="exampleSelect">単一選択：</label> <select
+							class="form-control" id="exampleSelect" name="fselect">
+							<option value="">---</option>
+							<option th:each="item : ${selectItems}" th:value="${item.value}"
+								th:text="${item.key}" th:selected="${item.value} == *{fselect}">
+								pulldown</option>
+						</select>
+					</div>
+					<br />
+					<!-- select multi -->
+					<div class="form-group">
+						<label class="control-label" for="exampleMSelect">複数選択：</label> <select
+							class="form-control" id="exampleMSelect" name="fmselect"
+							th:field="*{fmselect}" multiple="multiple" size="6">
+							<option value="">---</option>
+							<option th:each="item : ${selectItems}" th:value="${item.value}"
+								th:text="${item.key}">pulldown</option>
+						</select>
+					</div>
+					<!-- checkbox single -->
+					<div class="form-group">
+						<label class="control-label">単一チェックボックス：</label>
+						<div class="checkbox">
+							<label th:for="${#ids.next('fcheck')}">checked</label> <input
+								type="checkbox" name="fcheck" value="on" th:field="*{fcheck}" />
+						</div>
+					</div>
+					<!-- checkbox multi -->
+					<div class="form-group">
+						<label class="control-label">複数チェックボックス：</label>
+						<div class="checkbox" th:each="item : ${checkItems}">
+							<input type="checkbox" name="fchecks" th:value="${item.value}"
+								th:field="*{fchecks}" /> <label th:for="${#ids.prev('fchecks')}"
+								th:text="${item.key}">checked</label>
+						</div>
+					</div>
+					<!-- radio -->
+					<div class="form-group">
+						<label class="control-label">ラジオボタン：</label>
+						<div class="radio" th:each="item : ${radioItems}">
+							<label> <input type="radio" name="fradio"
+								th:value="${item.value}" th:text="${item.key}"
+								th:field="*{fradio}" />
+							</label>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-default">送信</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
+		th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

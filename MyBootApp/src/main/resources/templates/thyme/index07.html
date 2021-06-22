@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+th {
+	color:white;
+	background: darkgray
+}
+
+td {
+	color: black;
+	background: #e0e0ff
+}
+</style>
+<body>
+	<h1>Hello Tymeleaf</h1>
+	<p th:text="${msg}"></p>
+	<table th:object="${obj}">
+		<tr>
+			<th>ID</th>
+			<td th:text="*{id}"></td>
+		</tr>
+		<tr>
+			<th>NAME</th>
+			<td th:text="*{name}"></td>
+		</tr>
+		<tr>
+			<th>MAIL</th>
+			<td th:text="*{value}"></td>
+		</tr>
+	</table>
+
+</body>
+</html>

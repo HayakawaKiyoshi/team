@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>顧客管理システム</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" media="all" th:href="@{/css/style.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
+<style>
+.error-field {
+	border: solid 1px blue;
+	color: red;
+}
+
+.err {
+	color: red;
+}
+
+ul {
+	border: solid 2px green;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>顧客管理システム</h1>
+			<h2>顧客情報編集</h2>
+		</div>
+		<hr />
+		<div th:if="${#arrays.length(#fields.detailedErrors())} != 0">
+			<ul>
+				<li th:each="error : ${#fields.detailedErrors()}" class="err"
+					th:text="${error.message}" />
+			</ul>
+		</div>
+		<form action="/Jdbc/update" method="post" th:object="${employee}">
+			<div class="form-group">
+				<div th:if="${#arrays.length(#fields.detailedErrors())} != 0">
+					<ul>
+						<li th:each="error : ${#fields.detailedErrors()}" class="err"
+							th:text="${error.message}" />
+					</ul>
+				</div>
+				ID：<input type="text" name="emp_id" th:value="*{emp_id}" readonly />
+				<span th:if="${#fields.hasErrors('emp_id')}" th:errors="*{emp_id}"
+					th:errorclass="error-field">error!</span>
+			</div>
+			<div class="form-group">
+				パスワード：<input type="password" name="emp_pass" th:field="*{emp_pass}" />
+				<span th:if="${#fields.hasErrors('emp_pass')}"
+					th:errors="*{emp_pass}" th:errorclass="error-field">error!</span>
+			</div>
+			<div class="form-group">
+				名前：<input type="text" name="emp_name" th:field="*{emp_name}" /> <span
+					th:if="${#fields.hasErrors('emp_name')}" th:errors="*{emp_name}"
+					th:errorclass="error-field">error!</span>
+			</div>
+			<div class="form-group">
+				性別： <select name="gender" th:field="*{gender}">
+					<option value="1">男</option>
+					<option value="2">女</option>
+				</select> <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"
+					th:errorclass="error-field">error!</span>
+			</div>
+			<div class="form-group">
+				住所： <input type="text" name="address" th:field="*{address}" /> <span
+					th:if="${#fields.hasErrors('address')}" th:errors="*{address}"
+					th:errorclass="error-field">error!</span>
+			</div>
+			<div class="form-group">
+				誕生日：<input type="text" name="birthday" th:field="*{birthday}" /> <span
+					th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"
+					th:errorclass="error-field">error!</span>
+			</div>
+			<div class="form-group">
+				部署： <input type="text" name="post_id" th:field="*{post_id}" /> <span
+					th:if="${#fields.hasErrors('post_id')}" th:errors="*{post_id}"
+					th:errorclass="error-field">error!</span>
+			</div>
+			<input type="submit" name="goToTop" class="btn btn-primary"
+				value="戻る" /> <input type="submit" name="exec"
+				class="btn btn-primary" value="更新" />
+		</form>
+		<hr />
+		<footer style="text-align: center;">
+			<p>Copyright(C) 2018 Tokyomethod Co.</p>
+		</footer>
+	</div>
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

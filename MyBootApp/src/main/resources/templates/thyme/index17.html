@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+ <h1>Hello Thymeleaf</h1>
+ <p th:text="${msg}"></p>
+ <div th:text="${hoge.publicField}"></div>
+ <div th:text="${hoge['publicField']}"></div>
+ <div th:text="${hoge.publicMethod()}"></div> <div th:text="${hoge.publicValue}"></div>
+ <div th:text="${hoge['publicValue']}"></div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>top page</title>
+<style>
+pre {
+	font-size: 13pt;
+	color: gray;
+	padding: 5px 10px;
+	border: 1px solid gray;
+}
+</style>
+</head>
+<body>
+	<h1>Hello page</h1>
+	<p th:text="${msg}"></p>
+
+ <!--  <p th:text="${msg}">please wait...</p>
+ <form method="post" action="/">
+ <input type="text" name="text1" th:value="${value}" />
+ <input type="submit" value="Click" />
+ </form>
+	<form method="post" action="/">-->
+	<form method="post" action="/Form/next">
+		<p>
+			テキスト：<input type="text" name="text1" th:value="${sampleForm.text1}" />
+		</p>
+		<p>
+			チェックボックス：<input type="checkbox" value="1" name="check1" />面白い <input
+				type="checkbox" value="2" name="check1" />役立つ <input
+				type="checkbox" value="3" name="check1" />いまいち
+		</p>
+		<p>
+			性別：<input type="radio" name="radio1" value="male" />男 <input
+				type="radio" name="radio1" value="female" />女
+		</p>
+		<p>
+			機種：<select name="select1" size="4">
+				<option value="Windows">Windows</option>
+				<option value="Mac">Mac</option>
+				<option value="unix">unix</option>
+			</select>
+		</p>
+		<p>
+			携帯機種（複数選択）：<select name="select2" size="4" multiple="multiple">
+				<option value="Android">Android</option>
+				<option value="iphone">iphone</option>
+				<option value="winfone">Windows Phone</option>
+			</select>
+		</p>
+		<p>
+			感想：<br />
+			<textarea name="kanso" rows="4" cols="40">ここに感想を記入してください。</textarea>
+		</p>
+		<input type="submit" value="Click" />
+	</form>
+</body>
+</html>

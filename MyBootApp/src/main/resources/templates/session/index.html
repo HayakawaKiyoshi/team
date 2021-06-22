@@ -1,0 +1,29 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Sample Session</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Spring Sample Session</h1>
+	<div>Session:</div>
+	session固定設定内容：
+	<div th:text="${session.sessionother}">sessionother</div>
+	session counter 内容：
+	<div th:text="${session.sessioncount}">sessioncount</div>
+	Formのsession設定内容：
+	<div th:if="${session.inputForm} != null"
+		th:text="${session.inputForm.text1}">session inputform text1</div>
+	<hr />
+	<span>入力 Bean InputForm</span>
+	<form th:action="@{/Session/post}" th:object="${inputForm}"
+		method="post">
+		<p>
+			text1: <input type="text" th:field="*{text1}" />
+		</p>
+		<p>
+			<input type="submit" value="送信" /> <input type="reset" value="リセット" />
+		</p>
+	</form>
+</body>

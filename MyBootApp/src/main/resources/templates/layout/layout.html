@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">　　　layout page</title>
+<style>
+ div.fragment {
+ border:solid 3px lightgray
+ }
+ div.footer {
+ text-align: center;
+ }
+</style>
+</head>
+<body>
+ <h1>Hello Thymeleaf</h1>
+ <p th:text="${msg}"></p>
+ <p th:text="|共通ヘッダー : ヘッダー|"></p>
+ <div layout:fragment="content">contents</div>
+ <hr />
+ <div class="footer">
+ <p th:text="'Copyright 2018 フッター'"></p>
+ </div>
+</body>
+</html>

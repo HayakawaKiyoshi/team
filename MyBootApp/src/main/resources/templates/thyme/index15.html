@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+ th{ color:white; background:darkgray}
+ td{ color:black; background:#e0e0ff}
+</style>
+<body>
+<h1>Hello Thymeleaf</h1>
+ <p th:text="${msg}"></p>
+ <table th:inline="text">
+ <tr><th>NAME</th><th>MAIL</th><th>TEL</th></tr>
+ <tr th:each="obj:${data}">
+ <td>[[${obj.id}]]</td>
+ <td>[[${obj.name}]]</td>
+ <td>[[${obj.value}]]</td>
+ </tr>
+ </table>
+</body>
+</html>

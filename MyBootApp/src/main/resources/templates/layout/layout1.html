@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">layout page</title>
+<link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/style.css}" />
+</head>
+<body>
+<div class="container">
+ <div layout:insert="~{layout/header::header}"></div> <!-- insertはバージョン3.x -->
+ <div layout:include="~{layout/navi::navbar}"></div>
+ <div layout:fragment="content">contents</div>
+ <div layout:include="~{layout/footer::footer}"></div>
+ </div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

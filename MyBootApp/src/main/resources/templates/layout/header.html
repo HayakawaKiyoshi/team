@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>part header</title>
+</head>
+<body>
+	<header layout:fragment="header">
+		<div class="container">
+			<div>
+				<div>
+					<h1>Hello Thymeleaf</h1>
+					<p th:text="${msg}"></p>
+				</div>
+				<div class="col-sm-9 col-md-9">
+					<a href="/Thyme/sample22">ロゴ</a>
+				</div>
+				<div class="col-sm-3 col-md-3">
+					<a href="/Thyme/sample21" title="Contact us">お問い合わせ</a>
+				</div>
+			</div>
+		</div>
+	</header>
+</body>
+</html>

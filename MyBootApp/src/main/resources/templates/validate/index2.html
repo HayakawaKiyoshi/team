@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
+<title>Insert title here</title>
+<style>
+table {
+	width: 800px;
+	border-collapse: collapse;
+	border: solid 1px black;
+}
+
+td {
+	border-collapse: collapse;
+	height: 40px;
+	border: solid 1px black;
+}
+
+.error-field {
+	color: red;
+}
+
+li {
+	color: red;
+}
+#err{
+border: solid 2px blue;
+}
+.error{
+background-color:red;
+}
+</style>
+</head>
+<body>
+<a th:href="@{/Validate/sample2}">Topページ</a>
+<hr></hr>
+	<div class="page-header">
+		<h1>Hello Thymeleaf</h1>
+		<p th:text="${msg}"></p>
+	</div>
+	<form role="form" action="/Validate/sample2/confirm"
+		th:action="@{/Validate/sample2/confirm}" th:object="${myDate}"
+		method="post">
+		<ul>
+			<li th:each="error : ${#fields.detailedErrors()}" class="err"
+				th:text="${error.message}" />
+		</ul>
+		<table>
+			<tr>
+				<td>名前:</td>
+				<td><input type="text" name="name" th:field="*{name}"th:errorclass="error"></td>
+				<td id="err" th:if="${#fields.hasErrors('name')}"
+					th:errors="*{name}" th:errorclass="error-field">error!</td>
+			</tr>
+			<tr>
+				<td>メールアドレス:</td>
+				<td><input type="text" name="email" th:field="*{email}"th:errorclass="error"></td>
+				<td id="err" th:if="${#fields.hasErrors('email')}"
+					th:errors="*{email}" th:errorclass="error-field">error!</td>
+			</tr>
+			<tr>
+				<td>年齢:</td>
+				<td><input type="text" name="age"th:field="*{age}"th:errorclass="error"></td>
+				<td id="err" th:if="${#fields.hasErrors('age')}"
+					th:errors="*{age}" th:errorclass="error-field">error!</td>
+			</tr>
+			<tr>
+				<td>誕生日:</td>
+				<td><input type="text" name="birth" th:field="*{birth}"th:errorclass="error"></td>
+				<td id="err" th:if="${#fields.hasErrors('birth')}"
+					th:errors="*{birth}" th:errorclass="error-field">error!</td>
+			</tr>
+			<tr>
+				<td>期間:</td>
+				<td><input type="text" name="from_period"th:errorclass="error">～<input
+					type="text" name="to_period"th:errorclass="error"></td>
+				<td> <div th:if="${#fields.hasErrors('from_period')}"
+					th:errors="*{from_period}" th:errorclass="error-field">error!</div>
+					<div th:if="${#fields.hasErrors('to_period')}"
+					th:errors="*{to_period}" th:errorclass="error-field">error!</div>
+					</td></tr>
+
+		</table>
+		<input type="submit" value="送信">
+	</form>
+</body>
+</html>

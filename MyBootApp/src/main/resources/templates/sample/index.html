@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>顧客管理システム</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" media="all" th:href="@{/css/style.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
+<style>
+ul {
+	border: solid 2px green;
+}
+
+li {
+	color: red;
+}
+
+.error-field {
+	border: solid 1px blue;
+	color: red;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>顧客管理システム</h1>
+			<h2>顧客情報一覧</h2>
+		</div>
+		<hr />
+		<form role="form" action="/Jdbc/create" th:action="@{/Jdbc/create}"
+			th:object="${employee}" method="post">
+			<div th:if="${#arrays.length(#fields.detailedErrors())} != 0">
+				<ul>
+					<li th:each="error : ${#fields.detailedErrors()}" class="err"
+						th:text="${error.message}" />
+				</ul>
+			</div>
+			<div class="form-group">
+				パスワード：<input type="password" name="emp_pass" th:field="*{emp_pass}" />
+				<span th:if="${#fields.hasErrors('emp_pass')}"
+					th:errors="*{emp_pass}" th:errorclass="error-field">error!</span>
+			</div>
+			<div class="form-group">
+				名前 ：<input type="text" name="emp_name" th:field="*{emp_name}" /> <span
+					th:if="${#fields.hasErrors('emp_name')}" th:errors="*{emp_name}"
+					th:errorclass="error-field">error!</span>
+			</div>
+			<div class="form-group">
+				性別 ： <select name="gender" th:field="*{gender}">
+					<option value="1">男</option>
+					<option value="2">女</option>
+				</select>
+			</div>
+			<div class="form-group">
+				住所 ： <input type="text" name="address" th:field="*{address}" /> <span
+					th:if="${#fields.hasErrors('address')}" th:errors="*{address}"
+					th:errorclass="error-field">error!</span>
+
+			</div>
+			<div class="form-group">
+				誕生日 ：<input type="text" name="birthday" th:field="*{birthday}" /> <span
+					th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"
+					th:errorclass="error-field">error!</span>
+			</div>
+			<div class="form-group">
+				部署 ： <input type="text" name="post_id" th:value="1" />
+				<!-- valueに設定するときはfieldなし fieldはvalueを生成するから -->
+			</div>
+			<button type="submit" class="btn btn-primary">登録</button>
+		</form>
+		<hr />
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered table-sm">
+				<tr>
+					<th>emp_id</th>
+					<th>emp_pass</th>
+					<th>emp_name</th>
+					<th>gender</th>
+					<th>address</th>
+					<th>birthday</th>
+					<th>post_id</th>
+					<th>更新</th>
+					<th>削除</th>
+				</tr>
+				<tr th:each="e:${list}">
+					<td th:text="*{e.Emp_id}"></td>
+					<td th:text="*{e.Emp_pass}"></td>
+					<td th:text="*{e.Emp_name}"></td>
+					<td th:text="*{e.Gender}"></td>
+					<td th:text="*{e.Address}"></td>
+					<td th:text="*{e.Birthday}"></td>
+					<td th:text="*{e.Post_id}"></td>
+					<td><a th:href="@{/Jdbc/update(id=*{e.Emp_id})}"><button>更新</button></a></td>
+					<td>
+						<form th:action="@{/Jdbc/delete}" method="post">
+							<button onclick='return confirm("本当に削除しますか？");'>削除</button>
+							<input type="hidden" name="id" th:value="*{e.Emp_id}" />
+						</form>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<hr />
+		<footer style="text-align: center;">
+			<p>Copyright(C) 2018 Tokyomethod Co.</p>
+		</footer>
+	</div>
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

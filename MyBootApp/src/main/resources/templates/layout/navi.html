@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>navi page</title>
+</head>
+<body>
+	<div layout:fragment="navbar" class="clearfix">
+		<div class="container">
+			<nav class="navbar navbar-expand-sm navbar-light bg-light container"
+				role="navigation">
+				<a class="navbar-brand" href="">Menu</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#example" aria-controls="example"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="navbar-collapse collapse" id="example">
+					<ul id="nav" class="nav navbar-nav">
+						<li class="nav-item"><a class="nav-link"
+							href="/Thyme/sample22" title="ホーム">ホーム</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="/Thyme/sample1" title="メニュー１">メニュー１</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="/Thyme/sample2" title="メニュー２">メニュー２</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="/Thyme/sample3?id=123&name=abc&id=456&name=def"
+							title="メニュー３">メニュー３</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+</body>
+</html>

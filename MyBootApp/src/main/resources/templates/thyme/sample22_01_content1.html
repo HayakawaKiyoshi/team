@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>top footer</title>
+<style type="text/css" th:include="part/part :: frag_style">
+</style>
+</head>
+<body>
+ <div th:include="part/part_header::frag_header(param1='header', param2='ヘッダー１')"></div>
+ <div th:include="part/part :: frag_body1">
+ <p>オリジナル コンテント１</p>
+ </div>
+ <div th:include="part/part_footer :: frag_footer"></div>
+</body>
+</html>

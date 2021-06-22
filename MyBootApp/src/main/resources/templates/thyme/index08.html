@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Hello Thymeleaf</h1>
+ <p th:text="${msg}"></p>
+ <div th:object="${obj}">
+ <p th:text="|Hello MSG literal= ${msg} |"></p>
+ <p th:text="|my name is *{name}, mail address is *{value}. |">message</p>
+ </div>
+
+</body>
+</html>

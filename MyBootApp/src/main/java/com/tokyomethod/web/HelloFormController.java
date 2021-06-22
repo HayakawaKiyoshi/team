@@ -18,7 +18,7 @@ public class HelloFormController {
 		return mav;
 	}
 
-	/*玄番大介です*/
+	/*どうも玄番大介です。*/
 	@RequestMapping(value = "/Form/next", method = RequestMethod.POST)
 	public ModelAndView send2(@ModelAttribute SampleForm form,
 			ModelAndView mav) {

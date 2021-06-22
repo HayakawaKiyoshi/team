@@ -18,6 +18,7 @@ public class HelloFormController {
 		return mav;
 	}
 
+	/*genbadesu*/
 	@RequestMapping(value = "/Form/next", method = RequestMethod.POST)
 	public ModelAndView send2(@ModelAttribute SampleForm form,
 			ModelAndView mav) {

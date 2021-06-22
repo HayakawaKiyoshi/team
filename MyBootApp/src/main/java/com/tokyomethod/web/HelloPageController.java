@@ -28,7 +28,7 @@ public class HelloPageController {
 
 	/*
 	 *
-	 * @auther User 変更 git確認のため
+	 * @auther User 変更 tatsumi git確認のため
 	 */
 
 	@RequestMapping("/home")

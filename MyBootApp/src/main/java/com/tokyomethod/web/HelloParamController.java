@@ -10,7 +10,7 @@ import com.tokyomethod.form.InputForm;
 /**
  *
  * @author iwata Git確認コメント1
- *
+ *　あああああ
  */
 @Controller
 //@RequestMapping("/")

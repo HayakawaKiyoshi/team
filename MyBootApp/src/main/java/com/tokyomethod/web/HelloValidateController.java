@@ -21,7 +21,7 @@ import com.tokyomethod.form.MyForm1;
 public class HelloValidateController {
 	//
 	 /**
-	 * selectの表示に使用するアイテム
+	 * 　@author nagasawa 変更 Git確認のため
 	 */
 	 final static Map<String, String> SELECT_ITEMS =
 	 Collections.unmodifiableMap(new LinkedHashMap<String, String>() {
@@ -62,7 +62,7 @@ public class HelloValidateController {
 	 private ModelAndView index1(MyForm1 form,
 	 ModelAndView mav){
 	 mav.setViewName("validate/index1");
-	 mav.addObject("msg", "Hello Thymeleaf!! フォーム連携入力画面");
+	 mav.addObject("msg", "Hello!! フォーム連携入力画面");
 	 mav.addObject("selectItems", SELECT_ITEMS);
 	 mav.addObject("checkItems", CHECK_ITEMS);
 	 mav.addObject("radioItems", RADIO_ITEMS);

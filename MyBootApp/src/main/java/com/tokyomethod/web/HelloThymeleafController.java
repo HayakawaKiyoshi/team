@@ -21,8 +21,7 @@ import com.tokyomethod.form.MyForm;
 @Controller
 @RequestMapping("/Thyme")
 public class HelloThymeleafController {
-	//変更
-
+	//コメント追加
 	//1
 	@RequestMapping(path = "sample1", method = RequestMethod.GET)
 	private ModelAndView index1(ModelAndView mav) {

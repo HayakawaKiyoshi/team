@@ -9,8 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.tokyomethod.form.InputForm;
 /**
  *
- * @author iwata Git確認コメント1
- *　あああああ
+ * @author iwata Git確認コメント4
+ *　追加
  */
 @Controller
 //@RequestMapping("/")
